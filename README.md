@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 ![adapptable720p](https://cloud.githubusercontent.com/assets/16024539/14479324/e5892500-00e2-11e6-81a6-6e8d86e16b10.gif)
 
-<span style="font-size:3em; font-family: roboto">Adapptable</span>
+ # Adapptable
 
 A simple web interface to select open-source components and plugins from the community,
 and fuse the selection into a single application, to easily setup company tools. You'll be able to choose branding schemes, included license, specialized functionality for Python, meta-programming, etc., and much more about it!
