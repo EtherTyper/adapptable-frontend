@@ -1,4 +1,4 @@
-![adapptable720p](https://cloud.githubusercontent.com/assets/16024539/14479324/e5892500-00e2-11e6-81a6-6e8d86e16b10.gif)
+![adapptable](Adapptable.svg)
 
  # Adapptable
 
