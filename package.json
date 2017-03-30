@@ -7,7 +7,7 @@
   },
   "name": "adapptable",
   "version": "0.1.0",
-  "main": "main.js",
+  "main": "app/main.js",
   "description": "Customize applications and build them into installers!",
   "repository": "https://github.com/ethertyper/adapptable",
   "author": "Eli Joesph Bradley <elijos03@gmail.com>",
