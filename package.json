@@ -1,5 +1,15 @@
 {
-  "name"    : "adapptable",
-  "version" : "0.1.0",
-  "main"    : "main.js"
+  "scripts": {
+    "test": "electron ."
+  },
+  "name": "adapptable",
+  "version": "0.1.0",
+  "main": "main.js",
+  "description": "Customize applications and build them into installers!",
+  "repository": "https://github.com/ethertyper/adapptable",
+  "author": "Eli Joesph Bradley <elijos03@gmail.com>",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "electron-packager": "^8.6.0"
+  }
 }
