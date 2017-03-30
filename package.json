@@ -13,6 +13,7 @@
   "author": "Eli Joesph Bradley <elijos03@gmail.com>",
   "license": "GPL-3.0",
   "devDependencies": {
+    "electron": "^1.6.2",
     "electron-packager": "^8.6.0"
   }
 }
