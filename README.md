@@ -18,4 +18,4 @@ There are several recommended methods for installation of Adapptble:
 
 # License
 
-The application frontend is currently licensed under the copyleft GPLv3 for competitive advantage. The backend, however, is proprietary and potentially commercial as of this moment.
+The application frontend is currently licensed under the copyleft GPLv3 for competitive advantage. The backend, however, is proprietary and potentially commercial as of this moment. Nothing in the `resources/` folder is licensed or our content.
