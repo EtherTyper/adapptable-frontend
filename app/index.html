@@ -120,7 +120,7 @@
                 	"RUST",
                 	"AI"
                 ];
-                var logo;
+
                 function check(toCheck) {
                 	// Highlight button, change values.
                 	let isDepend=true;
@@ -221,14 +221,14 @@
                         <span>Apply similar Apache 2.0 licensing?</span>
                     </span>
                     <span class="project-tagline table-cell">
-                        <span class="btn" onclick="window.location.href='#page-2'; load_JB();">
+                        <span class="btn" onclick="window.location.href='#configuration-page'">
                             NEXT
                         </span>
                     </span>
                 </div>
             </div>
         </section>
-        <section class="page-header" id="page-2">
+        <section class="page-header" id="configuration-page">
             <div class="ui-table">
                 <div class="table-row">
                     <span class="table-cell">
@@ -239,13 +239,13 @@
                         <div></div>
                         <input type="text" id="IDEA-abbrev" style="color: #000" placeholder="Platform Product" oninput="selection['ID']=this.value">
                     </span>
-                    <span style="display: table-cell; vertical-align: middle; ">
+                    <span class="table-cell">
                         <div id="company-logo-upload">
                             <img id="company-logo" width="128px" height="128px">
                         </div>
                         <input type="text" id="company" style="color: #000" placeholder="Copyright Organization" oninput="selection['Company']['Name']=this.value">
                     </span>
-                    <span style="display: table-cell; vertical-align: middle; ">
+                    <span class="table-cell">
                         IntelliJ Branch: <span></span>
                         <select id="build-branch" onchange="selection['Build']['Branch']=this.value;">
                             <option value="145">145</option>
@@ -256,22 +256,22 @@
                         <input type="number" id="build-number" style="color: #000" placeholder="Build Number" oninput="selection['Build']['Number']=this.value">
                     </span>
                 </div>
-                <div style="display: table-row; vertical-align: middle;">
-                    <span style="display: table-cell; vertical-align: middle; ">
+                <div class="table-row">
+                    <span class="table-cell">
                         <span id="WIN-btn" class="btn" onclick="check_platform('WIN')">
                             <image src="resources/Windows.svg" width="128px" id="WIN-image">
                             <div></div>
                             Windows
                         </span>
                     </span>
-                    <span style="display: table-cell; vertical-align: middle; ">
+                    <span class="table-cell">
                         <span id="MAC-btn" class="btn" onclick="check_platform('MAC')">
                             <image src="resources/Hexley_the_Platypus.svg" width="128px" height="128px" id="MAC-image">
                             <div></div>
                             Mac
                         </span>
                     </span>
-                    <span style="display: table-cell; vertical-align: middle; ">
+                    <span class="table-cell">
                         <span id="UNIX-btn" class="btn" onclick="check_platform('UNIX')">
                             <image src="resources/Tux.svg" width="128px" height="128px" id="UNIX-image">
                             <div></div>
@@ -280,21 +280,20 @@
                     </span>
                 </div>
             </div>
-            <div style="display: table; width: 95%;  margin-left: 5%;">
-                <div id="time" style="display: table-row; vertical-align: middle;">
-                    <span class="project-tagline" style="display: table-cell; vertical-align: middle;">
+            <div style="display: table; width: 87.5%; margin-left: 7.5%;">
+                <div id="time" class="table-row">
+                    <span class="project-tagline table-cell">
                     		<span class="btn" onclick="window.location.href='#plugins-page'">
                     				BACK
                     		</span>
                     </span>
-                    <span style="display: table-cell; vertical-align: middle;">
-                    		<input type="checkbox" value="JDK" id="JDK-check" onclick="selection['Build']['JDK-bundle']=this.checked;">
+                    <span class="table-cell">
+                    		<input type="checkbox" value="JDK" id="JDK-check" onclick="selection['Build']['JDK-bundle']=this.checked">
                     		<span>Include a custom JDK 6?</span>
-                    		<br>
                     		<input type="text" id="license" style="color: #000; width: 70%;" placeholder="Alternative Licensing Summary" oninput="selection['License']=this.value">
                     </span>
-                    <span class="project-tagline" style="display: table-cell; vertical-align: middle;">
-                    		<span class="btn" onclick="window.location.href='#page-3';" style="filter: gray; filter: grayscale(1); -webkit-filter: grayscale(1);">
+                    <span class="project-tagline table-cell">
+                    		<span class="btn" onclick="window.location.href='#page-3'">
                     				GENERATE
                     		</span>
                     </span>
@@ -302,20 +301,20 @@
             </div>
         </section>
         <script>
-            logo=document.getElementById('IDEA-logo-upload');
+            let logo = document.getElementById('IDEA-logo-upload');
             logo.ondrop = function (e) {
             	e.preventDefault();
             	var file = e.dataTransfer.files[0];
-            	if (file.type.match(/image\/.*/)){
+            	if (file.type.match(/image\/.*/)) {
             		document.getElementById('IDEA-logo').src=file.path;
             		selection["Logo"]=file.path;
             	}
             	return false;
             };
-            logo.ondragover = logo.ondragleave = logo.ondragend = function () {
-            	return false;
-            };
-            logo=document.getElementById('company-logo-upload');
+
+            logo.ondragover = logo.ondragleave = logo.ondragend = () => false;
+
+            let companyLogo = document.getElementById('company-logo-upload');
             logo.ondrop = function (e) {
             	e.preventDefault();
             	var file = e.dataTransfer.files[0];
@@ -325,11 +324,13 @@
             	}
             	return false;
             };
-            logo.ondragover = logo.ondragleave = logo.ondragend = function () {
-            	return false;
-            };
-            function load_JB(){
-            	selection["Company"]["Logo"]=document.getElementById('company-logo').src="resources/logo_JetBrains_"+Math.ceil(Math.random()*4)+".svg";
+
+            logo.ondragover = logo.ondragleave = logo.ondragend = () => false;
+
+            function load_JB() {
+            	selection["Company"]["Logo"] =
+                document.getElementById('company-logo').src =
+                `resources/logo_JetBrains_${Math.ceil(Math.random()*4)}.svg`;
             }
             load_JB();
         </script>
