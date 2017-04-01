@@ -1,6 +1,7 @@
 'use strict';
 
 const electron = require('electron');
+const devtron = require('devtron');
 const app = electron.app;  // Module to control application life.
 const BrowserWindow = electron.BrowserWindow;  // Module to create native browser window.
 
@@ -28,6 +29,7 @@ var newWin=function() {
     mainWindow.loadURL('file://' + __dirname + '/index.html');
 
     // mainWindow.webContents.openDevTools();
+    devtron.install();
 
     // Emitted when the window is closed.
     mainWindow.on('closed', function() {
