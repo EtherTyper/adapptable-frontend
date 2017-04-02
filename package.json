@@ -1,7 +1,8 @@
 {
   "scripts": {
     "test": "electron .",
-    "build": "electron-packager . Adapptable --platform=darwin --arch=x64 --electron-version=1.6.2 --ignore='node_modules/(electron-packager|electron-prebuilt|standard|publish-release)' --version-string.CompanyName=adapptable --version-string.ProductName=Adapptable --icon=Icon.icns",
+    "build": "asar p . app.asar",
+    "build:mac": "electron-packager . Adapptable --platform=darwin --arch=x64 --electron-version=1.6.2 --ignore='node_modules/(electron-packager|electron-prebuilt|standard|publish-release)' --version-string.CompanyName=adapptable --version-string.ProductName=Adapptable --icon=Icon.icns",
     "build:win": "electron-packager . Adapptable --platform=win32 --arch=x64 --electron-version=1.6.2 --ignore=node_modules/electron-packager --ignore=node_modules/electron-prebuilt --ignore=node_modules/standard --ignore=node_modules/publish-release --version-string.CompanyName=adapptable --version-string.ProductName=Adapptable --icon=Icon.icns",
     "build:linux": "electron-packager . Adapptable --platform=linux --arch=x64 --eletron-version=1.6.2 --ignore=node_modules/electron-packager --ignore=node_modules/electron-prebuilt --ignore=node_modules/standard --ignore=node_modules/publish-release --version-string.CompanyName=adapptable --version-string.ProductName=Adapptable --icon=Icon.icns"
   },
@@ -13,6 +14,7 @@
   "author": "Eli Joesph Bradley <elijos03@gmail.com>",
   "license": "GPL-3.0",
   "devDependencies": {
+    "asar": "^0.13.0",
     "devtron": "^1.4.0",
     "electron": "^1.6.2",
     "electron-packager": "^8.6.0"
