@@ -16,8 +16,7 @@
                         <h1 class="project-name">Welcome to <span style="font-family: roboto">Ad<i style="color: #b1e8f7">app</i>table!</span></h1>
                         <h3 class="project-tagline">
                             A simple web interface to select open-source components and plugins from the community,
-                        </h3>
-                        <h3 class="project-tagline">
+                            <div></div>
                             and fuse the selection into a single application, to easily setup company tools.
                         </h3>
                     </span>
@@ -346,7 +345,7 @@
                 if (response.ok) {
                   console.log(response.blob())
 
-                  alert(`Successfuly posted data: \n\n${JSON.stringify(selection)}`)
+                  alert(`Successfuly posted data: \n\n${window.btoa(JSON.stringify(selection))}`)
                 } else {
                   throw new Error('Network response was not ok.')
                 }
