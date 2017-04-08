@@ -293,7 +293,7 @@
                     		<input type="text" id="license" style="color: #000; width: 70%;" placeholder="Alternative Licensing Summary" oninput="selection['License']=this.value">
                     </span>
                     <span class="project-tagline table-cell">
-                    		<span class="btn" onclick="window.location.href='#page-3'">
+                    		<span class="btn" onclick="postJSON()">
                     				GENERATE
                     		</span>
                     </span>
@@ -333,6 +333,23 @@
                 `resources/logo_JetBrains_${Math.ceil(Math.random()*4)}.svg`;
             }
             load_JB();
+
+            function postJSON() {
+              fetch("http://127.0.0.1:3000/api/", {
+                method: "POST",
+                headers: {
+                  "Content-type": "application/json"
+                },
+                body: JSON.stringify(selection)
+              }).then(function(response) {
+                if (response.ok) {
+                  console.log(response.blob())
+                  return
+                } else {
+                  throw new Error('Network response was not ok.')
+                }
+              })
+            }
         </script>
     </body>
 </html>
