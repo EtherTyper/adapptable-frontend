@@ -316,12 +316,12 @@
             logo.ondragover = logo.ondragleave = logo.ondragend = () => false;
 
             let companyLogo = document.getElementById('company-logo-upload');
-            logo.ondrop = function (e) {
+            companyLogo.ondrop = function (e) {
             	e.preventDefault();
             	var file = e.dataTransfer.files[0];
             	if (file.type.match(/image\/.*/)){
             		document.getElementById('company-logo').src=file.path;
-            		selection["Logo"]=file.path;
+            		selection["Company"]["Logo"]=file.path;
             	}
             	return false;
             };
