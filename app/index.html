@@ -345,6 +345,8 @@
               }).then(function(response) {
                 if (response.ok) {
                   console.log(response.blob())
+
+                  alert(`Successfuly posted data: \n\n${JSON.stringify(selection)}`)
                 } else {
                   throw new Error('Network response was not ok.')
                 }
