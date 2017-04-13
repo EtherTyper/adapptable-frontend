@@ -3,6 +3,7 @@
     "test": "electron .",
     "build": "asar p . app.asar",
     "build:mac": "electron-packager . Adapptable --platform=darwin --arch=x64 --electron-version=1.6.2 --ignore='node_modules/(electron-packager|electron-prebuilt|standard|publish-release)' --version-string.CompanyName=adapptable --version-string.ProductName=Adapptable --icon=Icon.icns",
+    "build:macapp": "electron-packager . Adapptable --platform=mas --arch=x64 --electron-version=1.6.2 --ignore='node_modules/(electron-packager|electron-prebuilt|standard|publish-release)' --version-string.CompanyName=adapptable --version-string.ProductName=Adapptable --icon=Icon.icns",
     "build:win": "electron-packager . Adapptable --platform=win32 --arch=x64 --electron-version=1.6.2 --ignore=node_modules/electron-packager --ignore=node_modules/electron-prebuilt --ignore=node_modules/standard --ignore=node_modules/publish-release --version-string.CompanyName=adapptable --version-string.ProductName=Adapptable --icon=Icon.icns",
     "build:linux": "electron-packager . Adapptable --platform=linux --arch=x64 --eletron-version=1.6.2 --ignore=node_modules/electron-packager --ignore=node_modules/electron-prebuilt --ignore=node_modules/standard --ignore=node_modules/publish-release --version-string.CompanyName=adapptable --version-string.ProductName=Adapptable --icon=Icon.icns"
   },
