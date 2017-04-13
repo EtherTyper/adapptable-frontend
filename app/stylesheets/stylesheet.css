@@ -69,25 +69,18 @@ a {
 }
 
 .ui-table {
-  display: table;
+  display: grid;
+  grid-template-columns: repeat(3, 30%);
   width: 100%;
   height: 90%;
+  grid-row-gap: 1em;
+  vertical-align: center;
 }
 
 .navigation-table {
   display: table;
   width: 87%;
   margin-left: 7%;
-}
-
-.table-row {
-  display: table-row;
-  vertical-align: middle;
-}
-
-.table-cell {
-  display: table-cell;
-  vertical-align: middle;
 }
 
 input {
