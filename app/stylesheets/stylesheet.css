@@ -19,6 +19,11 @@ a {
   a:hover {
     text-decoration: underline; }
 
+.img {
+  height: 200px;
+  vertical-align: middle;
+}
+
 .btn {
   display: inline-block;
   margin-bottom: 1rem;
@@ -74,7 +79,7 @@ a {
   width: 100%;
   height: 90%;
   grid-row-gap: 1em;
-  vertical-align: center;
+  vertical-align: middle;
 }
 
 .navigation-table {
