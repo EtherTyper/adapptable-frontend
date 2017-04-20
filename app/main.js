@@ -23,7 +23,14 @@ app.on('window-all-closed', function() {
 var newWin=function() {
   if (mainWindow==null){
     // Create the browser window.
-    mainWindow = new BrowserWindow({width: 1260, height: 787});
+    mainWindow = new BrowserWindow(
+      {
+        width: 1260,
+        height: 787,
+        webPreferences: {
+          experimentalFeatures: true,
+        }
+      });
 
     // and load the index.html of the app.
     mainWindow.loadURL('file://' + __dirname + '/index.html');
