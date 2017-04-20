@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en-us">
     <head>
         <meta charset="UTF-8">
@@ -11,8 +12,9 @@
     <body>
         <section class="page-header" id="main-page">
             <div class="ui-table">
-                <div class="table-row">
-                    <span class="table-cell">
+                <div> </div>
+				<div>
+                    <span class="table-cell" align=center>
                         <h1 class="project-name">Welcome to <span style="font-family: roboto">Ad<i style="color: #b1e8f7">app</i>table!</span></h1>
                         <h3 class="project-tagline">
                             A simple web interface to select open-source components and plugins from the community,
@@ -155,12 +157,6 @@
             </script>
             <div class="ui-table">
                 <div class="table-row">
-                    <span class="table-cell">
-                        <span id="IJ-btn" class="btn" onclick="check('IJ')">
-                            <image src="resources/icon_IntelliJIDEA.svg" width="128px" id="IJ-image">
-                            <div></div>
-                            IntelliJ IDEA
-                        </span>
                     </span>
                     <span class="table-cell">
                         <span id="PC-btn" class="btn" onclick="check('PC')">
@@ -186,13 +182,6 @@
                         </span>
                     </span>
                     <span class="table-cell">
-                        <span id="RUST-btn" class="btn" onclick="check('RUST')">
-                            <image src="resources/Rust_programming_language_black_logo.svg" width="128px" id="RUST-image">
-                            <div></div>
-                            IntelliJ Rust
-                        </span>
-                    </span>
-                    <span class="table-cell">
                         <span id="AI-btn" class="btn" onclick="check('AI')">
                             <image src="resources/Android_Studio_icon.svg" width="128px" id="AI-image" style="filter: gray; filter: grayscale(1); -webkit-filter: grayscale(1);">
                             <div></div>
@@ -200,7 +189,22 @@
                         </span>
                     </span>
                 </div>
-            </div>
+                <div class="table-row">
+                    <span class="table-cell">
+                        <span id="IJ-btn" class="btn" onclick="check('IJ')">
+                            <image src="resources/icon_IntelliJIDEA.svg" width="128px" id="IJ-image">
+                            <div></div>
+                            IntelliJ IDEA
+                        </span>
+                    <span class="table-cell">
+                        <span id="RUST-btn" class="btn" onclick="check('RUST')">
+                            <image src="resources/Rust_programming_language_black_logo.svg" width="128px" id="RUST-image">
+                            <div></div>
+                            IntelliJ Rust
+                        </span>
+                    </span>
+				</div>
+			</div>
             <div class="navigation-table">
                 <div class="table-row">
                     <span class="project-tagline table-cell">
@@ -237,6 +241,7 @@
                         </div>
                         <input type="text" id="company" style="color: #000" placeholder="Copyright Organization" oninput="selection['Company']['Name']=this.value">
                     </span>
+					<br/>
                     <span class="table-cell">
                         IntelliJ Branch: <span></span>
                         <select id="build-branch" onchange="selection['Build']['Branch']=this.value;">
@@ -272,17 +277,20 @@
                     </span>
                 </div>
             </div>
+			<br>
             <div style="display: table; width: 87.5%; margin-left: 7.5%;">
                 <div id="time" class="table-row">
-                    <span class="project-tagline table-cell">
-                    		<span class="btn" onclick="window.location.href='#plugins-page'">
-                    				BACK
-                    		</span>
-                    </span>
+				<br/>
                     <span class="table-cell">
                     		<input type="checkbox" value="JDK" id="JDK-check" onclick="selection['Build']['JDK-bundle']=this.checked">
                     		<span>Include a custom JDK 6?</span>
                     		<input type="text" id="license" style="color: #000; width: 70%;" placeholder="Alternative Licensing Summary" oninput="selection['License']=this.value">
+                    </span>
+					<br>
+                    <span class="project-tagline table-cell">
+                    		<span class="btn" onclick="window.location.href='#plugins-page'">
+                    				BACK
+                    		</span>
                     </span>
                     <span class="project-tagline table-cell">
                     		<span class="btn" onclick="postJSON()">

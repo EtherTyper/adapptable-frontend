@@ -62,6 +62,17 @@ a {
       margin-top: 1rem;
       margin-left: 0; } }
 
+.page-header-alt {
+  color: #fff;
+  text-align: center;
+  background-color: #159957;
+  background-image: linear-gradient(120deg, #39F, #F63);
+  min-height: 100%;
+  height: 100vh;
+  width: 100%;
+  font-family: 'Gotham SSm A', 'Gotham SSm B', Helvetica, Arial, sans-serif;
+}
+
 .page-header {
   color: #fff;
   text-align: center;
@@ -73,9 +84,19 @@ a {
   font-family: 'Gotham SSm A', 'Gotham SSm B', Helvetica, Arial, sans-serif;
 }
 
+.ui-main-table
+{
+  display: grid;
+  grid-template-columns: repeat(1, 100%);
+  width: 100%;
+  height: 90%;
+  grid-row-gap: 1em;
+  vertical-align: middle;
+}
+
 .ui-table {
   display: grid;
-  grid-template-columns: repeat(3, 30%);
+  grid-template-columns: repeat(3, 33.33%);
   width: 100%;
   height: 90%;
   grid-row-gap: 1em;
