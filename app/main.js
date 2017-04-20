@@ -34,7 +34,7 @@ var newWin = function () {
       });
 
     // and load the index.html of the app.
-    mainWindow.loadURL(['file://', __dirname, 'app/index.html'].reduce(url.resolve));
+    mainWindow.loadURL(['file://', __filename, 'index.html'].reduce(url.resolve));
 
     mainWindow.webContents.openDevTools();
     devtron.install();
