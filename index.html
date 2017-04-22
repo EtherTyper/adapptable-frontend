@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+    <head>
+        <meta charset="UTF-8">
+        <title>Adapptable</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    </head>
+    <body>
+        <section class="page-header" id="main-page">
+            <div class="ui-table">
+                <div> </div>
+				<div>
+                    <span class="table-cell" align=center>
+                        <h1 class="project-name">Welcome to <span style="font-family: roboto">Ad<i style="color: #b1e8f7">app</i>table!</span></h1>
+                        <h3 class="project-tagline">
+                            A simple web interface to select open-source components and plugins from the community,
+                            <div></div>
+                            and fuse the selection into a single application, to easily setup company tools.
+                        </h3>
+                    </span>
+                </div>
+            </div>
+            <div class="navigation-table">
+                <div class="table-row">
+                    <span class="project-tagline table-cell">
+                        <span class="btn" onclick="window.location.href='#app-select'">
+                            NEXT
+                        </span>
+                    </span>
+                </div>
+            </div>
+        </section>
+        <section class="page-header" id="app-select">
+		<br/>
+            <div class="ui-table">
+                <div id="IJ-platform-btn" class="img btn" onclick="window.location.href='#plugins-page'">
+                    <image src="resources/icon_IntelliJIDEA.svg" width="128px">
+                    <div></div>
+                    IntelliJ Platform
+                </div>
+                <div id="blender-platform-btn" class="img btn">
+                    <image src="resources/BlenderDesktopLogo.png" width="128px">
+                    <div></div>
+                    Blender
+                </div>
+                <div id="gimp-platform-btn" class="img btn">
+                    <image src="resources/The_GIMP_icon_-_gnome.svg" width="128px">
+                    <div></div>
+                    GIMP
+                </div>
+            </div>
+            <div class="navigation-table">
+                <div class="table-row">
+                    <span class="project-tagline table-cell">
+                        <span class="btn" onclick="window.location.href='#main-page'">
+                            BACK
+                        </span>
+                    </span>
+                </div>
+            </div>
+        </section>
+        <section class="page-header" id="plugins-page">
+            <script>
+                // Initialize variables.
+                let selection = {
+                	"features" : {
+                		"IJ" : false,
+                		"PC" : false,
+                		"PE" : false,
+                		"MPS" : false,
+                		"RUST" : false,
+                		"AI" : false
+                	},
+                	"Company" : {
+                		"Name" : "JetBrains",
+                		"Logo" : null
+                	},
+                	"Build" : {
+                		"Branch" : 145,
+                		"Number" : null,
+                		"JDK-bundle" : true
+                	},
+                	"Platform" : {
+                		"MAC" : false,
+                		"WIN" : false,
+                		"UNIX" : false
+                	},
+                	"Name" : "IntelliJ IDEA",
+                	"ID" : "IJ",
+                	"Apache" : false,
+                	"Logo" : "resources/icon_IntelliJIDEA.svg",
+                	"License" : null
+                };
+                let dependencies = {
+                	"IJ" : [],
+                	"PC" : [],
+                	"PE" : [
+                		"PC"
+                	],
+                	"MPS": [],
+                	"RUST" : [],
+                	"AI" : [
+                		"IJ"
+                	]
+                };
+                let list = [
+                	"IJ",
+                	"PC",
+                	"PE",
+                	"MPS",
+                	"RUST",
+                	"AI"
+                ];
+
+                function check(toCheck) {
+                	// Highlight button, change values.
+                	let isDepend=true;
+                	for (let i=0; i<dependencies[toCheck].length; i++)
+                		isDepend=isDepend&&selection["features"][dependencies[toCheck][i]];
+                	if (isDepend) {
+                		selection["features"][toCheck]=!selection["features"][toCheck];
+                		// button.class=selection["features"][toCheck] ? "btn-selected" : "btn";
+                		document.getElementById(toCheck+'-btn').style=selection["features"][toCheck] ?
+                			"color: rgba(255, 255, 255, 0.8);\
+                			text-decoration: none;\
+                			background-color: rgba(255, 255, 255, 0.2);\
+                			border-color: rgba(255, 255, 255, 0.3);" : "";
+                	}
+
+                	// Check for changes in dependencies.
+                	for (var j=0; j<list.length; j++) {
+                		let dependFullfilled=true;
+                		for (let k=0; k<dependencies[list[j]].length; k++)
+                			dependFullfilled=dependFullfilled&&selection["features"][dependencies[list[j]][k]];
+                		document.getElementById(list[j]+'-image').style = (dependFullfilled) ? "" : "filter: gray; filter: grayscale(1); -webkit-filter: grayscale(1);";
+                		selection["features"][list[j]] = (dependFullfilled) ? selection["features"][list[j]] : false;
+                	}
+                }
+
+                function checkApache() {
+                	document.getElementById('license').disabled=selection['Apache']=document.getElementById('Apache').checked;
+                	document.getElementById('license').value=selection["License"]=null;
+                }
+
+                function check_platform(toCheck) {
+                	selection["Platform"][toCheck]=!selection["Platform"][toCheck];
+                	// button.class=selection["features"][toCheck] ? "btn-selected" : "btn";
+                	document.getElementById(toCheck+'-btn').style=selection["Platform"][toCheck] ?
+                		"color: rgba(255, 255, 255, 0.8);\
+                		text-decoration: none;\
+                		background-color: rgba(255, 255, 255, 0.2);\
+                		border-color: rgba(255, 255, 255, 0.3);" : "";
+                }
+            </script>
+            <div class="ui-table">
+                <div class="table-row">
+                    </span>
+                    <span class="table-cell">
+                        <span id="PC-btn" class="btn" onclick="check('PC')">
+                            <image src="resources/icon_PyCharm.svg" width="128px" id="PC-image">
+                            <div></div>
+                            PyCharm Community
+                        </span>
+                    </span>
+					<br/>
+                    <span class="table-cell">
+                        <span id="PE-btn" class="btn" onclick="check('PE')">
+                            <image src="resources/icon_PyCharmEdu.svg" width="128px" id="PE-image" style="filter: gray; filter: grayscale(1); -webkit-filter: grayscale(1);">
+                            <div></div>
+                            PyCharm Edu
+                        </span>
+                    </span>
+                </div>
+                <div class="table-row">
+                    <span class="table-cell">
+                        <span id="MPS-btn" class="btn" onclick="check('MPS')">
+                            <image src="resources/icon_MPS.svg" width="128px" id="MPS-image">
+                            <div></div>
+                            Meta Programming
+                        </span>
+                    </span>
+					<br/>
+                    <span class="table-cell">
+                        <span id="AI-btn" class="btn" onclick="check('AI')">
+                            <image src="resources/Android_Studio_icon.svg" width="128px" id="AI-image" style="filter: gray; filter: grayscale(1); -webkit-filter: grayscale(1);">
+                            <div></div>
+                            Android Studio
+                        </span>
+                    </span>
+                </div>
+                <div class="table-row">
+                    <span class="table-cell">
+                        <span id="IJ-btn" class="btn" onclick="check('IJ')">
+                            <image src="resources/icon_IntelliJIDEA.svg" width="128px" id="IJ-image">
+                            <div></div>
+                            IntelliJ IDEA
+                        </span>
+						<br/>
+                    <span class="table-cell">
+                        <span id="RUST-btn" class="btn" onclick="check('RUST')">
+                            <image src="resources/Rust_programming_language_black_logo.svg" width="128px" id="RUST-image">
+                            <div></div>
+                            IntelliJ Rust
+                        </span>
+                    </span>
+				</div>
+			</div>
+            <div class="navigation-table">
+                <div class="table-row">
+                    <span class="project-tagline table-cell">
+                        <span class="btn" onclick="window.location.href='#app-select'">
+                            BACK
+                        </span>
+                    </span>
+                    <span class="project-tagline table-cell">
+                        <input type="checkbox" value="Apache" id="Apache" onclick="checkApache()">
+                        <span>Apply similar Apache 2.0 licensing?</span>
+                    </span>
+                    <span class="project-tagline table-cell">
+                        <span class="btn" onclick="window.location.href='#configuration-page'">
+                            NEXT
+                        </span>
+                    </span>
+                </div>
+            </div>
+        </section>
+        <section class="page-header" id="configuration-page">
+            <div class="ui-table">
+                <div class="table-row">
+                    <span class="table-cell">
+                        <div id="IDEA-logo-upload">
+                            <img src="resources/icon_IntelliJIDEA.svg" id="IDEA-logo" width="128px" height="128px">
+                        </div>
+                        <input type="text" id="IDEA-name" style="color: #000" placeholder="Derivative Name" oninput="selection['Name']=this.value">
+                        <div></div>
+                        <input type="text" id="IDEA-abbrev" style="color: #000" placeholder="Platform Product" oninput="selection['ID']=this.value">
+                    </span>
+                    <span class="table-cell">
+                        <div id="company-logo-upload">
+                            <img id="company-logo" width="128px" height="128px">
+                        </div>
+                        <input type="text" id="company" style="color: #000" placeholder="Copyright Organization" oninput="selection['Company']['Name']=this.value">
+                    </span>
+					<br/>
+                    <span class="table-cell">
+                        IntelliJ Branch: <span></span>
+                        <select id="build-branch" onchange="selection['Build']['Branch']=this.value;">
+                            <option value="145">145</option>
+                            <option value="143">143</option>
+                            <option value="141">141</option>
+                        </select>
+                        <div></div>
+                        <input type="number" id="build-number" style="color: #000" placeholder="Build Number" oninput="selection['Build']['Number']=this.value">
+                    </span>
+                </div>
+                <div class="table-row">
+                    <span class="table-cell">
+                        <span id="WIN-btn" class="btn" onclick="check_platform('WIN')">
+                            <image src="resources/Windows.svg" width="128px" id="WIN-image">
+                            <div></div>
+                            Windows
+                        </span>
+                    </span>
+                    <span class="table-cell">
+                        <span id="MAC-btn" class="btn" onclick="check_platform('MAC')">
+                            <image src="resources/Hexley_the_Platypus.svg" width="128px" height="128px" id="MAC-image">
+                            <div></div>
+                            Mac
+                        </span>
+                    </span>
+                    <span class="table-cell">
+                        <span id="UNIX-btn" class="btn" onclick="check_platform('UNIX')">
+                            <image src="resources/Tux.svg" width="128px" height="128px" id="UNIX-image">
+                            <div></div>
+                            Linux
+                        </span>
+                    </span>
+                </div>
+            </div>
+			<br>
+            <div style="display: table; width: 87.5%; margin-left: 7.5%;">
+                <div id="time" class="table-row">
+				<br/>
+                    <span class="table-cell">
+                    		<input type="checkbox" value="JDK" id="JDK-check" onclick="selection['Build']['JDK-bundle']=this.checked">
+                    		<span>Include a custom JDK 6?</span>
+                    		<input type="text" id="license" style="color: #000; width: 70%;" placeholder="Alternative Licensing Summary" oninput="selection['License']=this.value">
+                    </span>
+					<br>
+                    <span class="project-tagline table-cell">
+                    		<span class="btn" onclick="window.location.href='#plugins-page'">
+                    				BACK
+                    		</span>
+                    </span>
+                    <span class="project-tagline table-cell">
+                    		<span class="btn" onclick="postJSON()">
+                    				GENERATE
+                    		</span>
+                    </span>
+                </div>
+            </div>
+        </section>
+        <script>
+            let logo = document.getElementById('IDEA-logo-upload');
+            logo.ondrop = function (e) {
+            	e.preventDefault();
+            	var file = e.dataTransfer.files[0];
+            	if (file.type.match(/image\/.*/)) {
+            		document.getElementById('IDEA-logo').src=file.path;
+            		selection["Logo"]=file.path;
+            	}
+            	return false;
+            };
+
+            logo.ondragover = logo.ondragleave = logo.ondragend = () => false;
+
+            let companyLogo = document.getElementById('company-logo-upload');
+            companyLogo.ondrop = function (e) {
+            	e.preventDefault();
+            	var file = e.dataTransfer.files[0];
+            	if (file.type.match(/image\/.*/)){
+            		document.getElementById('company-logo').src=file.path;
+            		selection["Company"]["Logo"]=file.path;
+            	}
+            	return false;
+            };
+
+            logo.ondragover = logo.ondragleave = logo.ondragend = () => false;
+
+            function load_JB() {
+            	selection["Company"]["Logo"] =
+                document.getElementById('company-logo').src =
+                `resources/logo_JetBrains_${Math.ceil(Math.random()*4)}.svg`;
+            }
+            load_JB();
+
+            function postJSON() {
+              fetch("http://127.0.0.1:3000/api/", {
+                method: "POST",
+                headers: {
+                  "Content-type": "application/json"
+                },
+                body: JSON.stringify(selection)
+              }).then(function(response) {
+                if (response.ok) {
+                  console.log(response.blob())
+
+                  alert(`Successfuly posted data: \n\n${window.btoa(JSON.stringify(selection))}`)
+                } else {
+                  throw new Error('Network response was not ok.')
+                }
+              })
+            }
+        </script>
+    </body>
+</html>
