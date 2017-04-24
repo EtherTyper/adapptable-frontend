@@ -60,11 +60,6 @@
                             BACK
                         </span>
                     </span>
-					<span class="project-tagline table-cell">
-                        <span class="btn" onclick="window.location.href='#plugins-page'">
-                            NEXT
-                        </span>
-                    </span>
                 </div>
             </div>
         </section>
@@ -243,15 +238,20 @@
                         <input type="text" id="IDEA-name" style="color: #000" placeholder="Derivative Name" oninput="selection['Name']=this.value">
                         <div></div>
                         <input type="text" id="IDEA-abbrev" style="color: #000" placeholder="Platform Product" oninput="selection['ID']=this.value">
+					
                     </span>
+					<br/>
                     <span class="table-cell">
                         <div id="company-logo-upload">
                             <img id="company-logo" width="128px" height="128px">
                         </div>
                         <input type="text" id="company" style="color: #000" placeholder="Copyright Organization" oninput="selection['Company']['Name']=this.value">
+					
                     </span>
-					<br/>
+                </div>
+                <div class="table-row">
                     <span class="table-cell">
+					<br/>
                         IntelliJ Branch: <span></span>
                         <select id="build-branch" onchange="selection['Build']['Branch']=this.value;">
                             <option value="145">145</option>
@@ -260,9 +260,9 @@
                         </select>
                         <div></div>
                         <input type="number" id="build-number" style="color: #000" placeholder="Build Number" oninput="selection['Build']['Number']=this.value">
+					
                     </span>
-                </div>
-                <div class="table-row">
+					<br/><br/><br/><br/><br/><br/><br/>
                     <span class="table-cell">
                         <span id="WIN-btn" class="btn" onclick="check_platform('WIN')">
                             <image src="resources/Windows.svg" width="128px" id="WIN-image">
@@ -270,22 +270,26 @@
                             Windows
                         </span>
                     </span>
+                </div>
+                <div class="table-row">
                     <span class="table-cell">
                         <span id="MAC-btn" class="btn" onclick="check_platform('MAC')">
                             <image src="resources/Hexley_the_Platypus.svg" width="128px" height="128px" id="MAC-image">
                             <div></div>
                             Mac
                         </span>
-                    </span>
+					
+						<br/>
                     <span class="table-cell">
                         <span id="UNIX-btn" class="btn" onclick="check_platform('UNIX')">
                             <image src="resources/Tux.svg" width="128px" height="128px" id="UNIX-image">
                             <div></div>
                             Linux
                         </span>
+					
                     </span>
-                </div>
-            </div>
+				</div>
+			</div>
 			<br>
             <div style="display: table; width: 87.5%; margin-left: 7.5%;">
                 <div id="time" class="table-row">
