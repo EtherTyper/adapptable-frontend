@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en-us">
     <head>
         <meta charset="UTF-8">
@@ -12,9 +11,8 @@
     <body>
         <section class="page-header" id="main-page">
             <div class="ui-table">
-                <div> </div>
-				<div>
-                    <span class="table-cell" align=center>
+                <div class="table-row">
+                    <span class="table-cell">
                         <h1 class="project-name">Welcome to <span style="font-family: roboto">Ad<i style="color: #b1e8f7">app</i>table!</span></h1>
                         <h3 class="project-tagline">
                             A simple web interface to select open-source components and plugins from the community,
@@ -35,22 +33,29 @@
             </div>
         </section>
         <section class="page-header" id="app-select">
-		<br/>
             <div class="ui-table">
-                <div id="IJ-platform-btn" class="img btn" onclick="window.location.href='#plugins-page'">
-                    <image src="resources/icon_IntelliJIDEA.svg" width="128px">
-                    <div></div>
-                    IntelliJ Platform
-                </div>
-                <div id="blender-platform-btn" class="img btn">
-                    <image src="resources/BlenderDesktopLogo.png" width="128px">
-                    <div></div>
-                    Blender
-                </div>
-                <div id="gimp-platform-btn" class="img btn">
-                    <image src="resources/The_GIMP_icon_-_gnome.svg" width="128px">
-                    <div></div>
-                    GIMP
+                <div class="table-row">
+                    <span class="table-cell">
+                        <span id="IJ-platform-btn" class="btn" onclick="window.location.href='#plugins-page'">
+                            <image src="resources/icon_IntelliJIDEA.svg" width="128px">
+                            <div></div>
+                            IntelliJ Platform
+                        </span>
+                    </span>
+                    <span class="table-cell">
+                        <span id="blender-platform-btn" class="btn">
+                            <image src="resources/BlenderDesktopLogo.png" width="128px">
+                            <div></div>
+                            Blender
+                        </span>
+                    </span>
+                    <span class="table-cell">
+                        <span id="gimp-platform-btn" class="btn">
+                            <image src="resources/The_GIMP_icon_-_gnome.svg" width="128px">
+                            <div></div>
+                            GIMP
+                        </span>
+                    </span>
                 </div>
             </div>
             <div class="navigation-table">
@@ -158,6 +163,12 @@
             </script>
             <div class="ui-table">
                 <div class="table-row">
+                    <span class="table-cell">
+                        <span id="IJ-btn" class="btn" onclick="check('IJ')">
+                            <image src="resources/icon_IntelliJIDEA.svg" width="128px" id="IJ-image">
+                            <div></div>
+                            IntelliJ IDEA
+                        </span>
                     </span>
                     <span class="table-cell">
                         <span id="PC-btn" class="btn" onclick="check('PC')">
@@ -166,7 +177,6 @@
                             PyCharm Community
                         </span>
                     </span>
-					<br/>
                     <span class="table-cell">
                         <span id="PE-btn" class="btn" onclick="check('PE')">
                             <image src="resources/icon_PyCharmEdu.svg" width="128px" id="PE-image" style="filter: gray; filter: grayscale(1); -webkit-filter: grayscale(1);">
@@ -183,7 +193,13 @@
                             Meta Programming
                         </span>
                     </span>
-					<br/>
+                    <span class="table-cell">
+                        <span id="RUST-btn" class="btn" onclick="check('RUST')">
+                            <image src="resources/Rust_programming_language_black_logo.svg" width="128px" id="RUST-image">
+                            <div></div>
+                            IntelliJ Rust
+                        </span>
+                    </span>
                     <span class="table-cell">
                         <span id="AI-btn" class="btn" onclick="check('AI')">
                             <image src="resources/Android_Studio_icon.svg" width="128px" id="AI-image" style="filter: gray; filter: grayscale(1); -webkit-filter: grayscale(1);">
@@ -192,23 +208,7 @@
                         </span>
                     </span>
                 </div>
-                <div class="table-row">
-                    <span class="table-cell">
-                        <span id="IJ-btn" class="btn" onclick="check('IJ')">
-                            <image src="resources/icon_IntelliJIDEA.svg" width="128px" id="IJ-image">
-                            <div></div>
-                            IntelliJ IDEA
-                        </span>
-						<br/>
-                    <span class="table-cell">
-                        <span id="RUST-btn" class="btn" onclick="check('RUST')">
-                            <image src="resources/Rust_programming_language_black_logo.svg" width="128px" id="RUST-image">
-                            <div></div>
-                            IntelliJ Rust
-                        </span>
-                    </span>
-				</div>
-			</div>
+            </div>
             <div class="navigation-table">
                 <div class="table-row">
                     <span class="project-tagline table-cell">
@@ -238,20 +238,14 @@
                         <input type="text" id="IDEA-name" style="color: #000" placeholder="Derivative Name" oninput="selection['Name']=this.value">
                         <div></div>
                         <input type="text" id="IDEA-abbrev" style="color: #000" placeholder="Platform Product" oninput="selection['ID']=this.value">
-					
                     </span>
-					<br/>
                     <span class="table-cell">
                         <div id="company-logo-upload">
                             <img id="company-logo" width="128px" height="128px">
                         </div>
                         <input type="text" id="company" style="color: #000" placeholder="Copyright Organization" oninput="selection['Company']['Name']=this.value">
-					
                     </span>
-                </div>
-                <div class="table-row">
                     <span class="table-cell">
-					<br/>
                         IntelliJ Branch: <span></span>
                         <select id="build-branch" onchange="selection['Build']['Branch']=this.value;">
                             <option value="145">145</option>
@@ -260,9 +254,9 @@
                         </select>
                         <div></div>
                         <input type="number" id="build-number" style="color: #000" placeholder="Build Number" oninput="selection['Build']['Number']=this.value">
-					
                     </span>
-					<br/><br/><br/><br/><br/><br/><br/>
+                </div>
+                <div class="table-row">
                     <span class="table-cell">
                         <span id="WIN-btn" class="btn" onclick="check_platform('WIN')">
                             <image src="resources/Windows.svg" width="128px" id="WIN-image">
@@ -270,40 +264,33 @@
                             Windows
                         </span>
                     </span>
-                </div>
-                <div class="table-row">
                     <span class="table-cell">
                         <span id="MAC-btn" class="btn" onclick="check_platform('MAC')">
                             <image src="resources/Hexley_the_Platypus.svg" width="128px" height="128px" id="MAC-image">
                             <div></div>
                             Mac
                         </span>
-					
-						<br/>
+                    </span>
                     <span class="table-cell">
                         <span id="UNIX-btn" class="btn" onclick="check_platform('UNIX')">
                             <image src="resources/Tux.svg" width="128px" height="128px" id="UNIX-image">
                             <div></div>
                             Linux
                         </span>
-					
                     </span>
-				</div>
-			</div>
-			<br>
+                </div>
+            </div>
             <div style="display: table; width: 87.5%; margin-left: 7.5%;">
                 <div id="time" class="table-row">
-				<br/>
-                    <span class="table-cell">
-                    		<input type="checkbox" value="JDK" id="JDK-check" onclick="selection['Build']['JDK-bundle']=this.checked">
-                    		<span>Include a custom JDK 6?</span>
-                    		<input type="text" id="license" style="color: #000; width: 70%;" placeholder="Alternative Licensing Summary" oninput="selection['License']=this.value">
-                    </span>
-					<br>
                     <span class="project-tagline table-cell">
                     		<span class="btn" onclick="window.location.href='#plugins-page'">
                     				BACK
                     		</span>
+                    </span>
+                    <span class="table-cell">
+                    		<input type="checkbox" value="JDK" id="JDK-check" onclick="selection['Build']['JDK-bundle']=this.checked">
+                    		<span>Include a custom JDK 6?</span>
+                    		<input type="text" id="license" style="color: #000; width: 70%;" placeholder="Alternative Licensing Summary" oninput="selection['License']=this.value">
                     </span>
                     <span class="project-tagline table-cell">
                     		<span class="btn" onclick="postJSON()">
